@@ -1,7 +1,7 @@
 //
 //  main.cpp
 //  FunctionSetsRelationDetermine @MT project
-//
+//  Version 1.1
 //  Created by CIeas.Chen on 12/19/19.
 //  Copyright © 2019 CIeas Chen. All rights reserved.
 //
@@ -37,12 +37,18 @@ int main(){
     getline(cin, inputSetX);
     cin.ignore(1000, '\n');
     
+    int saveUrComputer = 0;
     //make sure user does input something.
     while (inputSetX == "NoInput")
     {
         cout << "Please enter something, at least something: " ;
         getline(cin, inputSetX);
         cin.ignore(1000, '\n');
+        saveUrComputer ++;
+        if (saveUrComputer > 10){
+            cout << "Sorry you try so many times wrong." << endl;
+            return 3;
+        }
     }
     
     
@@ -223,7 +229,7 @@ int main(){
      *                                                                                     *
      *                                                                                     *
      ***************************************************************************************/
-    
+    cout << "Here's (x,y) relation you enter: ";
     for (int i = 0; i < userX.size(); i++)
     {
         if (i < userX.size() - 1)
@@ -231,7 +237,7 @@ int main(){
         else
             cout << "(" << userX.at(i) << "," << userY.at(i) << ")" << endl;
     }
-    
+    cout << endl;
     /***************************************************************************************
      *                                                                                     *
      *                             function validation checking                            *
